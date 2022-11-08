@@ -11,9 +11,9 @@ const Footer = () => {
                 </div>
             </div>
             <div className="grid grid-flow-col gap-4">
-                <Link>Home</Link>
-                <Link>Services</Link>
-                <Link>Blog</Link>
+                <Link to='/'>Home</Link>
+                <Link to='/services'>Services</Link>
+                <Link to='/blogs'>Blog</Link>
             </div>
             <p>Copyright © 2022 - All right reserved by redART</p>
         </footer>
