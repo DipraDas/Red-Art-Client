@@ -50,9 +50,9 @@ const Login = () => {
                     <p>Do you have an account? <Link className='text-blue-500 underline underline-offset-2' to='/register'>Register</Link></p>
                     <form onSubmit={handleSubmit}>
                         <label className='mt-3' htmlFor="">Email</label> <br />
-                        <input name='email' type="email" placeholder="Enter your email" className="input input-bordered" required/>
-                        <label className='mt-2' htmlFor="">Password</label>
-                        <input name='password' type="password" placeholder="Enter your password" className="input input-bordered " required/>
+                        <input name='email' type="email" placeholder="Enter your email" className="input input-bordered w-full mb-3" required/><br />
+                        <label className='mt-4' htmlFor="">Password</label><br />
+                        <input name='password' type="password" placeholder="Enter your password" className="input input-bordered w-full" required/><br />
                         <div className="card-actions">
                             <button style={{ border: '1px solid #ff6868', backgroundColor: '#000', textTransform: 'uppercase', boxShadow: '0px 0px 5px 0px inset #ff6868' }} className="btn btn-block mt-5">Sign In</button>
                         </div>
