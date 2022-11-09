@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error('error', error))
+    }
     return (
         <div className="navbar bg-base-100 py-4 tracking-wide lg:px-20 sm:px-2">
             <div className="navbar-start">
@@ -26,7 +34,28 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-outline btn-error uppercase tracking-wide"><Link to='/login'>Login</Link></button>
+                {
+                    user?.uid ?
+                        <>
+                            {/* <Link href="#deets">{user?.displayName}</Link> */}
+                            <div>
+                                {
+                                    user?.photoURL ?
+                                        <div title={user.displayName} className="avatar ">
+                                            <div className="w-8 rounded-full">
+                                                <img src={user?.photoURL} alt="Tailwind-CSS-Avatar-component" />
+                                            </div>
+                                        </div>
+                                        :
+                                        <FaUserAlt title={user.displayName} />
+                                }
+                            </div>
+                            <button className='btn btn-error btn-sm my-2 mr-8 ml-5' onClick={handleLogOut} variant="primary">Log out</button>
+                        </>
+                        :
+                        <>
+                            <button className="btn btn-outline btn-error uppercase tracking-wide"><Link to='/login'>Login</Link></button>                            </>
+                }
             </div>
         </div>
     );
