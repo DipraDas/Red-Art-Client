@@ -49,7 +49,7 @@ const Login = () => {
                     <h1 style={{ fontSize: '35px', marginTop: '10px' }} className="card-title">Sign In</h1>
                     <p>Do you have an account? <Link className='text-blue-500 underline underline-offset-2' to='/register'>Register</Link></p>
                     <form onSubmit={handleSubmit}>
-                        <label className='mt-3' htmlFor="">Email</label>
+                        <label className='mt-3' htmlFor="">Email</label> <br />
                         <input name='email' type="email" placeholder="Enter your email" className="input input-bordered" required/>
                         <label className='mt-2' htmlFor="">Password</label>
                         <input name='password' type="password" placeholder="Enter your password" className="input input-bordered " required/>

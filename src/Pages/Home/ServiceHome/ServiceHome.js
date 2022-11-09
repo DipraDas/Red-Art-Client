@@ -23,7 +23,7 @@ const ServiceHome = () => {
                 <h2 className='text-6xl mb-3 font-semibold text-gray-100'><span style={{ color: 'red' }}>Serv</span>ices</h2>
                 <img className='m-auto' src={bar} alt="" />
             </div>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='container mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10'>
                 {
                     services.map(service => <ServiceCard
                         key={service._id}
@@ -31,8 +31,8 @@ const ServiceHome = () => {
                     ></ServiceCard>)
                 }
             </div>
-            <div>
-                <button className="btn btn-outline btn-error uppercase tracking-wide"><Link to='/services'>View All</Link></button>
+            <div className='text-center mt-16 mb-20'>
+                <button style={{backgroundColor: 'red', color: '#fff'}} className="btn btn-error uppercase tracking-widest"><Link to='/services'>View All SERVICES</Link></button>
         </div>
         </div >
     );
