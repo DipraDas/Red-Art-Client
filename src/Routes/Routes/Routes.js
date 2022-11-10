@@ -5,6 +5,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import ReviewSection from "../../Pages/Services/ReviewSection/ReviewSection";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import Services from "../../Pages/Services/Services";
@@ -24,12 +25,16 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/reviews',
-                element: <ReviewSection></ReviewSection>
+                element: <ReviewSection></ReviewSection>,
+            },
+            {
+                path: '/myReviews',
+                element: <MyReviews></MyReviews>
             },
             {
                 path: '/addServices',
                 element: <AddService></AddService>,
-                loader:()=>fetch('http://localhost:5000/services')
+                loader: () => fetch('http://localhost:5000/services')
             },
             {
                 path: '/services/:id',

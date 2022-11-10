@@ -50,7 +50,7 @@ const Header = () => {
                                         <FaUserAlt title={user.displayName} />
                                 }
                             </div>
-                            <button className='btn btn-error btn-sm my-2 mr-8 ml-5' onClick={handleLogOut} variant="primary">Log out</button>
+                            <button className='btn btn-error my-2 mr-8 ml-5 uppercase' onClick={handleLogOut} variant="primary">Log out</button>
                         </>
                         :
                         <>

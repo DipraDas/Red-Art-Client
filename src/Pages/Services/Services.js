@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../Home/ServiceHome/ServiceCard';
 import bar from '../../../src/assets/home/bar-line.png';
+import ReviewSection from './ReviewSection/ReviewSection';
 
 const Services = () => {
     const [services, setServices] = useState([]);

@@ -3,26 +3,29 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import ReviewCard from './ReviewCard';
 
-const ReviewSection = () => {
+const ReviewSection = ({ serviceId }) => {
+    console.log(serviceId);
     const [reviews, setReviews] = useState([]);
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
             })
-    }, []);
+    }, [serviceId]);
 
     const handleAddComment = event => {
         event.preventDefault();
         const form = event.target;
         const comment = form.comment.value;
+        const email = user?.email || 'unregistered';
 
 
         const service = {
-
+            email,
+            serviceId,
             name: user.displayName,
             comment,
             image: user.photoURL
@@ -61,11 +64,11 @@ const ReviewSection = () => {
                 {
                     user?.uid ?
                         <form onSubmit={handleAddComment}>        <textarea name="comment" id="" cols="30" rows="10"></textarea>
-                                                <button className="btn btn-outline btn-error uppercase tracking-wide">Add Comment</button>
+                            <button className="btn btn-outline btn-error uppercase tracking-wide">Add Review</button>
 
                         </form>
                         :
-                        <button className="btn btn-outline btn-error uppercase tracking-wide"><Link to='/login'>Login</Link></button>
+                        <button className="btn btn-outline btn-error uppercase tracking-wide"><Link to='/login'>Please login to add a review</Link></button>
                 }
             </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const ReviewCard = ({ review }) => {
+    console.log(review);
 
     return (
        <div>

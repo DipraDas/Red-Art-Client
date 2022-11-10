@@ -47,6 +47,10 @@ const Register = () => {
                     <h1 style={{ fontSize: '35px', marginTop: '10px' }} className="card-title">Sign Up</h1>
                     <p>Already Registered? <Link className='text-blue-500 underline underline-offset-2' to='/login'>Login</Link></p>
                     <form onSubmit={handleSubmit}>
+                        <label className='mt-3' htmlFor="">Name</label><br />
+                        <input name='name' type="text" placeholder="Enter your name" className="input input-bordered w-full mb-3" required/><br />
+                        <label className='mt-3' htmlFor="">Photo</label><br />
+                        <input name='photo' type="text" placeholder="Enter your photoUrl" className="input input-bordered w-full mb-3" required/><br />
                         <label className='mt-3' htmlFor="">Email</label><br />
                         <input name='email' type="email" placeholder="Enter your email" className="input input-bordered w-full mb-3" required/><br />
                         <label className='mt-2' htmlFor="">Password</label><br />
