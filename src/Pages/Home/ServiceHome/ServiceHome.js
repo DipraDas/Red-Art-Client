@@ -5,10 +5,10 @@ import ServiceCard from './ServiceCard';
 
 const ServiceHome = () => {
     const [services, setServices] = useState([]);
-    const size=3;
-    
+    const size = 3;
+
     useEffect(() => {
-        const url = `http://localhost:5000/services?&size=${size}`;
+        const url = `https://asignment-server.vercel.app/services?&size=${size}`;
         console.log(size);
         fetch(url)
             .then(res => res.json())
@@ -32,8 +32,8 @@ const ServiceHome = () => {
                 }
             </div>
             <div className='text-center mt-16 mb-20'>
-                <button style={{backgroundColor: 'red', color: '#fff'}} className="btn btn-error uppercase tracking-widest"><Link to='/services'>View All SERVICES</Link></button>
-        </div>
+                <button style={{ backgroundColor: 'red', color: '#fff' }} className="btn btn-error uppercase tracking-widest"><Link to='/services'>View All SERVICES</Link></button>
+            </div>
         </div >
     );
 };

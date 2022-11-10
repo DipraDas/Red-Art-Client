@@ -10,7 +10,7 @@ const ReviewSection = ({ service }) => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceId=${_id}`)
+        fetch(`https://asignment-server.vercel.app/reviews?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -35,7 +35,7 @@ const ReviewSection = ({ service }) => {
         }
 
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://asignment-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

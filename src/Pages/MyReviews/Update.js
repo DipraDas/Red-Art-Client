@@ -6,14 +6,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Update = () => {
     const storedReview = useLoaderData();
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const [review, setReview] = useState(storedReview);
 
     const handleUpdateReview = event => {
         event.preventDefault();
         console.log(review);
-        fetch(`http://localhost:5000/myReviews/${storedReview._id}`, {
+        fetch(`https://asignment-server.vercel.app/myReviews/${storedReview._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const Update = () => {
     const handleInputChange = event => {
         const field = event.target.name;
         const value = event.target.value;
-        const newReview = {...review}
+        const newReview = { ...review }
         newReview[field] = value;
         setReview(newReview);
 
@@ -43,17 +43,17 @@ const Update = () => {
 
     return (
         <div>
-           {
-            user?.uid && 
-            <>
-             <h2>Please Update: {storedReview.serviceName}</h2>
-            <form onSubmit={handleUpdateReview}>
-                <input onChange={handleInputChange} defaultValue={storedReview.comment} type="text" name='comment' placeholder='review' required />
-                <br />
-                <button type="submit">Update Review</button>
-            </form></>
-           }
-                       <ToastContainer />
+            {
+                user?.uid &&
+                <>
+                    <h2>Please Update: {storedReview.serviceName}</h2>
+                    <form onSubmit={handleUpdateReview}>
+                        <input onChange={handleInputChange} defaultValue={storedReview.comment} type="text" name='comment' placeholder='review' required />
+                        <br />
+                        <button type="submit">Update Review</button>
+                    </form></>
+            }
+            <ToastContainer />
 
         </div>
     );
