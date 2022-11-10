@@ -18,7 +18,7 @@ const ServiceDetails = () => {
                 <p className="text-center text-gray-400 font-thin leading-10 tracking-wider">Rating: {service.rating}</p>
             </div>
             <div>
-                <ReviewSection serviceId={service._id}></ReviewSection>
+                <ReviewSection service={service}></ReviewSection>
             </div>
         </div>
 

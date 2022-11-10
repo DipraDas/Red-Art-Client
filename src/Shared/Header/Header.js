@@ -39,6 +39,8 @@ const Header = () => {
                         <>
                             {/* <Link href="#deets">{user?.displayName}</Link> */}
                             <div>
+                            <Link className='mr-3' to='/myReviews'>My Reviews</Link>
+                            <Link className='mr-3' to='/addServices'>Add Service</Link>
                                 {
                                     user?.photoURL ?
                                         <div title={user.displayName} className="avatar ">
@@ -50,6 +52,7 @@ const Header = () => {
                                         <FaUserAlt title={user.displayName} />
                                 }
                             </div>
+                            
                             <button className='btn btn-error my-2 mr-8 ml-5 uppercase' onClick={handleLogOut} variant="primary">Log out</button>
                         </>
                         :

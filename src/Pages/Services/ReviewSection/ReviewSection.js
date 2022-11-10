@@ -3,18 +3,19 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import ReviewCard from './ReviewCard';
 
-const ReviewSection = ({ serviceId }) => {
-    console.log(serviceId);
+const ReviewSection = ({ service }) => {
+    // console.log(serviceId);
+    const { _id, name, img } = service;
     const [reviews, setReviews] = useState([]);
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
+        fetch(`http://localhost:5000/reviews?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
             })
-    }, [serviceId]);
+    }, [_id]);
 
     const handleAddComment = event => {
         event.preventDefault();
@@ -25,7 +26,9 @@ const ReviewSection = ({ serviceId }) => {
 
         const service = {
             email,
-            serviceId,
+            serviceId: _id,
+            serviceName: name,
+            serviceImage: img,
             name: user.displayName,
             comment,
             image: user.photoURL
@@ -60,13 +63,15 @@ const ReviewSection = ({ serviceId }) => {
                     ></ReviewCard>
                 )
             }
-            <div>
+            <div className='container mx-auto my-20'>
                 {
                     user?.uid ?
-                        <form onSubmit={handleAddComment}>        <textarea name="comment" id="" cols="30" rows="10"></textarea>
-                            <button className="btn btn-outline btn-error uppercase tracking-wide">Add Review</button>
+                        <>
+                            <h1>Add Your Review</h1>
+                            <form onSubmit={handleAddComment}><textarea name="comment" id="" cols="50" rows="5"></textarea> <br />
+                                <button className="btn btn-outline btn-error uppercase tracking-wide">Add Review</button>
 
-                        </form>
+                            </form></>
                         :
                         <button className="btn btn-outline btn-error uppercase tracking-wide"><Link to='/login'>Please login to add a review</Link></button>
                 }

@@ -12,13 +12,9 @@ const ServiceCard = ({ service }) => {
                     <img src={img} alt="" />
                 </PhotoView>
             </PhotoProvider>
-            {/* <figure><img src={img} alt="Shoes" /></figure> */}
             <div className="card-body">
                 <h2 style={{ color: 'red' }} className="card-title text-4xl">{name}</h2>
                 <p className='text-2xl text-gray-600'>Price: ${price}</p>
-                {/* <p className='text-justify text-gray-500'>
-                    {description}
-                </p> */}
                 <p> {
                     description.length > 100 ?
                         <p className=' text-gray-600 leading-6'>{description.slice(0, 100) + '..'} <Link className='text-blue-500' to={`/services/${_id}`}>More</Link></p>

@@ -1,5 +1,7 @@
 import React from 'react';
 import bar from '../../../src/assets/home/bar-line.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddService = () => {
     const handleAddService = event => {
@@ -10,7 +12,7 @@ const AddService = () => {
         const rating = form.rating.value;
         const description = form.description.value;
         const design = form.design.value;
-        const img = form.img.value;
+        const img = form.image.value;
 
         const service = {
             name,
@@ -33,7 +35,9 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Order placed successfully')
+                    toast.success('Service Added !', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                     form.reset();
                 }
             })
@@ -64,6 +68,7 @@ const AddService = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };
